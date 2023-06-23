@@ -15,7 +15,7 @@ export const CardPage = () => {
     } = state
 
     const updateCardHandeler = async (item, quantity) => {
-        const { data } = await axios.get(`/products/${item._id}`)
+        const { data } = await axios.get(`https://jwellery-store-backend.onrender.com/products/${item._id}`)
         if (data.countInStock < quantity) {
             toast.error('Sorry Product Out stock')
             return;

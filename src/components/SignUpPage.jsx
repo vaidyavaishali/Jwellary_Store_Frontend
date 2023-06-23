@@ -26,7 +26,7 @@ const SignUpPage = () => {
             return
         }
         try {
-            const { data } = await axios.post("/api/users/signup", input)
+            const { data } = await axios.post("https://jwellery-store-backend.onrender.com/api/users/signup", input)
             ctxDispatch({ type: "USER_SIGNIN", payload: data })
             localStorage.setItem('userInfo', JSON.stringify(data))
             navigate(redirect || '/');

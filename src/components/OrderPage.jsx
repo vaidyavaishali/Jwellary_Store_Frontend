@@ -71,7 +71,7 @@ const OrderPage = () => {
             async (details) => {
                 try {
                     dispatch({ type: 'PAYMENT_REQUEST' });
-                    const { data } = await axios.put(`/api/orders/${order._id}/payment`,
+                    const { data } = await axios.put(`https://jwellery-store-backend.onrender.com/api/orders/${order._id}/payment`,
                         details, {
                         headers: { authorization: `Bearer ${userInfo.token}` }
                     })
@@ -108,7 +108,7 @@ const OrderPage = () => {
         const fetchOrder = async () => {
             try {
                 dispatch({ type: 'FETCH_REQUEST' });
-                const { data } = await axios.get(`/api/orders/${orderId}`, {
+                const { data } = await axios.get(`https://jwellery-store-backend.onrender.com/api/orders/${orderId}`, {
                     headers: { authorization: `Bearer ${userInfo.token}` },
                 });
                 dispatch({ type: 'FETCH_SUCCESS', payload: data });
@@ -127,7 +127,7 @@ const OrderPage = () => {
         }
         else {
             const loadScript = async () => {
-                const { data: clientId } = await axios.get('/api/keys/paypal', {
+                const { data: clientId } = await axios.get('https://jwellery-store-backend.onrender.com/api/keys/paypal', {
                     headers: { authorization: `Bearer ${userInfo.token}` },
 
                 });

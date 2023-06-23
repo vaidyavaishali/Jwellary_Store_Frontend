@@ -27,7 +27,7 @@ const ProductPage = () => {
         const fetchData = async () => {
             dispatch({ type: "FETCH_REQUEST" });
             try {
-                const result = await axios.get(`/products/unique_indentity/${unique_indentity}`)
+                const result = await axios.get(`https://jwellery-store-backend.onrender.com/products/unique_indentity/${unique_indentity}`)
                 dispatch({ type: "FETCH_SUCCESS", payload: result.data })
 
             } catch (error) {
@@ -42,7 +42,7 @@ const ProductPage = () => {
     const addToCard = async() => {
         const existItems = cart.cartItems.find((ele) => (ele._id) === product._id)
         const quantity = existItems ? existItems.quantity + 1 : 1
-        const {data} = await axios.get(`/products/${product._id}`)
+        const {data} = await axios.get(`https://jwellery-store-backend.onrender.com/products/${product._id}`)
         if(data.countInStock < quantity){
          toast.error('Sorry Product Out stock')
             return;

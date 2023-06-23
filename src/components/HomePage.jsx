@@ -17,7 +17,7 @@ const HomePage = () => {
         const fetchData = async () => {
             dispatch({ type: "FETCH_REQUEST" });
             try {
-                const result = await axios.get("/products")
+                const result = await axios.get("https://jwellery-store-backend.onrender.com/products")
                 dispatch({ type: "FETCH_SUCCESS", payload: result.data })
             } catch (e) {
                 dispatch({ type: "FETCH_FAIL", payload: e.message })

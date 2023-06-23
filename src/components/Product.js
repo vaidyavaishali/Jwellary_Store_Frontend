@@ -15,7 +15,7 @@ const Product = (props) => {
     const addToCardHandeler = async (item) => {
         const existItems = cartItems.find((ele) => (ele._id) === product._id)
         const quantity = existItems ? existItems.quantity + 1 : 1
-        const { data } = await axios.get(`/products/${item._id}`)
+        const { data } = await axios.get(`https://jwellery-store-backend.onrender.com/products/${item._id}`)
         if (data.countInStock < quantity) {
             toast('Sorry Product Out stock')
             return;

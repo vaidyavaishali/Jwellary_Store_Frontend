@@ -41,7 +41,7 @@ const PlaceOrder = () => {
         try {
             dispatch({ type: "CREATE_REQUEST" })
             const { data } = await axios.post(
-                '/api/orders',
+                'https://jwellery-store-backend.onrender.com/api/orders',
                 {
                     orderItems: cart.cartItems,
                     shippingAddress: cart.shippingAddress,
